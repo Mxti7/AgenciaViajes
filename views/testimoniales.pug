@@ -1,0 +1,34 @@
+extends ./layout/principal
+
+block contenido
+    main.container.mt-5 
+        h1.text-center.mt-5 #{pagina}
+        p.text-center Descubre cómo hemos ayudado a crear recuerdos duraderos y momentos memorables para nuestros viajeros.
+        hr
+
+        include ./layout/bloquetestimoniales
+
+    
+        .row
+            .col-md-12 
+                h2.d-block.w-100.text-center.mt-5 Agrega tu Testimonio
+
+                //Mostrar mensajes de erorr:
+                if(errores)
+                    each error in errores
+                        .alert.col.alert-danger.text-center= error.mensaje
+
+            .row.justify-content-center.col 
+                .col-md-8
+                
+                    form(action="./testimoniales" method="POST")
+                        .form-group
+                            label(for="nombre") Nombre
+                            input#nombre(type="text", placeholder="Ingresa tu nombre", name="nombre", class="form-control", value= nombre)
+                        .form-group
+                            label(for="correo") Correo
+                            input#correo(type="text", placeholder="Ingresa tu correo", name="correo", class="form-control", value= correo)
+                        .form-group
+                            label(for="mensaje") Mensaje
+                            textarea#mensaje(class="form-control", name="mensaje", placeholder="Ingresa tu mensaje", rows= 3, value= mensaje)
+                        input.btn.btn-success.btn-block(type="submit" value="Enviar")
