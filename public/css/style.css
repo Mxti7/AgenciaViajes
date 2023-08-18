@@ -55,7 +55,7 @@ h5{
     font-size: 4rem;
     order: -1;
     line-height: .8;
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, 0.788);
 }
 @media (min-width:768px) {
     .slider em {
@@ -219,7 +219,12 @@ h2.d-block.w-100.text-center{
 
 .card-body{
     padding-bottom: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card:hover{
+    transform: scale(1.01);
+    transition: 1s;
 }
 
 img.nosotros-inicio{
